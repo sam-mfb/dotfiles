@@ -19,6 +19,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 filetype plugin on
 filetype indent on
+set omnifunc=syntaxcomplete#Complete
+
 set expandtab
 set shiftwidth=4
 set tabstop=4
