@@ -37,3 +37,7 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+packadd! vim-javascript
+packadd! vim-jsx-pretty
+"packadd! vim-css
