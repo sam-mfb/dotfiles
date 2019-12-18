@@ -40,14 +40,3 @@ noremap   <Right>  <NOP>
 
 packadd! vim-javascript
 packadd! vim-jsx-pretty
-"packadd! vim-css
-
-let g:ale_linters = {
-            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \   'javascript': ['eslint'],
-            \}
-let g:ale_fixers = {
-            \   'javascript': ['eslint'],
-            \}
-let g:ale_set_highlights = 0
-let g:airline#extensions#ale#enabled = 1
