@@ -22,8 +22,8 @@ filetype indent on
 set omnifunc=syntaxcomplete#Complete
 
 set expandtab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set ai
 set si
 set wrap
@@ -40,3 +40,5 @@ noremap   <Right>  <NOP>
 
 packadd! vim-javascript
 packadd! vim-jsx-pretty
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
