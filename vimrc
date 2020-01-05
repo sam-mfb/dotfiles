@@ -28,6 +28,9 @@ set ai
 set si
 set wrap
 
+set splitbelow
+set splitright
+
 " stop using arrow keys!
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
