@@ -28,6 +28,10 @@ set ai
 set si
 set wrap
 
+set foldmethod=syntax
+set foldcolumn=2
+set foldlevelstart=99
+
 set splitbelow
 set splitright
 
