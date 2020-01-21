@@ -15,7 +15,7 @@ set background=dark
 colorscheme OceanicNext
 
 "resume at last position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+"au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 filetype plugin on
 filetype indent on
@@ -30,7 +30,7 @@ set wrap
 
 set foldmethod=syntax
 set foldcolumn=2
-set foldlevelstart=99
+set foldlevelstart=0
 
 "FastFold Options
 nmap zuz <Plug>(FastFoldUpdate)
