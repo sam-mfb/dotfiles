@@ -31,6 +31,9 @@ set wrap
 set foldmethod=syntax
 set foldcolumn=2
 set foldlevelstart=0
+hi Folded ctermfg=255
+"fold css and scss
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 "FastFold Options
 nmap zuz <Plug>(FastFoldUpdate)
