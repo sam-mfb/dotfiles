@@ -131,6 +131,12 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
  " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf'
 call plug#end()
