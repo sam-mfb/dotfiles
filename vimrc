@@ -130,3 +130,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
  
  " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf'
+call plug#end()
