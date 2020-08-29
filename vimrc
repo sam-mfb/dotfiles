@@ -143,3 +143,10 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 nnoremap <silent> <c-p> :Files<CR>
+
+" per
+" https://vi.stackexchange.com/questions/21924/how-can-i-hide-and-scroll-popup-window-in-coc-nvim-in-vim/21927#21927
+" see also .vim/autoload/misc.vim
+nnoremap <expr> <c-d> misc#scroll_cursor_popup(1) ? '<esc>' : '<c-d>'
+nnoremap <expr> <c-u> misc#scroll_cursor_popup(0) ? '<esc>' : '<c-u>'
+set belloff+=esc
