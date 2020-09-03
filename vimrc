@@ -5,11 +5,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
@@ -28,7 +28,7 @@ set number
 set background=dark
 colorscheme OceanicNext
 
-"enable highlighting when buffer loads to keep in sycn
+"enable highlighting when buffer loads to keep in sync
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
@@ -148,6 +148,7 @@ endfunction
  " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
  
+" remap to call fzf
 nnoremap <silent> <c-p> :Files<CR>
 
 " per
