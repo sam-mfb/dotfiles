@@ -1,3 +1,17 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+call plug#end()
+
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=indent,eol,start	" more powerful backspacing
 
@@ -9,10 +23,14 @@ set ruler		" show the cursor position all the time
 " vulnerabilities -- disable by default, even when 'nocompatible' is set
 set nomodeline
 
-syntax on
+syntax enable
 set number
 set background=dark
 colorscheme OceanicNext
+
+"enable highlighting when buffer loads to keep in sycn
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 "resume at last position
 "au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -67,9 +85,7 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-packadd! vim-javascript
-packadd! vim-jsx-pretty
-
+" COC OPTIONS AFTER HERE
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
@@ -113,6 +129,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+ " Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+ " Remap for code actions
+nmap <leader>do <Plug>(coc-codeaction)
  
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -128,20 +148,6 @@ endfunction
  " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
  
- " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-call plug#end()
-
 nnoremap <silent> <c-p> :Files<CR>
 
 " per
