@@ -7,12 +7,13 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-" let the internal vim TSX highlighter handle it
-let g:vim_jsx_pretty_disable_tsx = 1
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=indent,eol,start	" more powerful backspacing
