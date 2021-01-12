@@ -10,6 +10,8 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+
 call plug#end()
 
 " set filetypes as typescriptreact
@@ -55,6 +57,28 @@ set foldlevelstart=100
 hi Folded ctermfg=255
 "fold css and scss
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+
+" manually set cursor modes since windows terminal does not do it
+" automatically
+"
+" enter vim
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+" otherwise
+let &t_EI .= "\<Esc>[2 q"
+" insert mode
+let &t_SI .= "\<Esc>[5 q"
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+" Recent versions of xterm (282 or above) also support
+" 5 -> blinking vertical bar
+" 6 -> solid vertical bar
+" leave vim
+autocmd VimLeave * silent !echo -ne "\e[5 q"
+
+"Vim-Doge Options
+let g:doge_mapping = '<Leader>d'
 
 "FastFold Options
 nmap zuz <Plug>(FastFoldUpdate)
@@ -185,21 +209,3 @@ nnoremap <expr> <c-d> misc#scroll_cursor_popup(1) ? '<esc>' : '<c-d>'
 nnoremap <expr> <c-u> misc#scroll_cursor_popup(0) ? '<esc>' : '<c-u>'
 set belloff+=esc
 
-" manually set cursor modes since windows terminal does not do it
-" automatically
-"
-" enter vim
-autocmd VimEnter * silent !echo -ne "\e[2 q"
-" otherwise
-let &t_EI .= "\<Esc>[2 q"
-" insert mode
-let &t_SI .= "\<Esc>[5 q"
-" 1 or 0 -> blinking block
-" 2 -> solid block
-" 3 -> blinking underscore
-" 4 -> solid underscore
-" Recent versions of xterm (282 or above) also support
-" 5 -> blinking vertical bar
-" 6 -> solid vertical bar
-" leave vim
-autocmd VimLeave * silent !echo -ne "\e[5 q"
