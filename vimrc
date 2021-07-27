@@ -11,6 +11,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'kevinoid/vim-jsonc'
 
 call plug#end()
 
