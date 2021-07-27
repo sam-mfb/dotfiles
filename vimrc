@@ -18,6 +18,9 @@ call plug#end()
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
+" allow comments in jsons
+autocmd BufNewFile,BufRead *.json set filetype=jsonc
+
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=indent,eol,start	" more powerful backspacing
 
