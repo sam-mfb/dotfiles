@@ -11,14 +11,14 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-Plug 'kevinoid/vim-jsonc'
+Plug 'neoclide/jsonc.vim'
 
 call plug#end()
 
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
-" allow comments in jsons
+" set json filetype to jsonc
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
 
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
