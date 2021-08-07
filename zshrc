@@ -3,5 +3,6 @@ fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
 
-# navigate to root of current git repository
+# commands relative to root of current git repository
 alias cdg='cd "$(git rev-parse --show-cdup)"'
+alias lsg='ls "$(git rev-parse --show-cdup)"'
