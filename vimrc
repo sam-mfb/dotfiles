@@ -1,42 +1,55 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged')
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-Plug 'neoclide/jsonc.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()
-
-" set filetypes as typescriptreact
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-
-" set json filetype to jsonc
-autocmd BufNewFile,BufRead rush.json set filetype=jsonc
-
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=indent,eol,start	" more powerful backspacing
 
 " Now we set some defaults for the editor
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
+set re=0
 
 " modelines have historically been a source of security/resource
 " vulnerabilities -- disable by default, even when 'nocompatible' is set
 set nomodeline
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+let g:polyglot_disabled = ['javascript']
+let g:polyglot_disabled = ['jsx']
+let g:polyglot_disabled = ['typescript']
+let g:polyglot_disabled = ['typescriptreact']
+let g:polyglot_disabled = ['tsx']
+
+call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
+  Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+  Plug 'neoclide/jsonc.vim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'sheerun/vim-polyglot'
+  Plug 'mhartington/oceanic-next'
+  Plug 'tomasiser/vim-code-dark'
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'yuezk/vim-js'
+  Plug 'maxmellon/vim-jsx-pretty' 
+call plug#end()
+
+let g:coc_global_extensions=[ 'coc-css', 'coc-eslint', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-prettier', 'coc-spell-checker', 'coc-tsserver', 'coc-yaml' ]
+
 syntax enable
 set number
 set background=dark
+
 colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+" set json filetype to jsonc
+autocmd BufNewFile,BufRead rush.json set filetype=jsonc
 
 "enable highlighting when buffer loads to keep in sync
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
@@ -213,4 +226,3 @@ nnoremap <silent> <c-p> :Files<CR>
 nnoremap <expr> <c-d> misc#scroll_cursor_popup(1) ? '<esc>' : '<c-d>'
 nnoremap <expr> <c-u> misc#scroll_cursor_popup(0) ? '<esc>' : '<c-u>'
 set belloff+=esc
-
