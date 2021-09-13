@@ -1,8 +1,5 @@
 " From: https://github.com/OmniSharp/omnisharp-vim/wiki/Example-config
 "
-" Set this to 1 to use ultisnips for snippet handling
-let s:using_snippets = 0
-
 " vim-plug: {{{
 call plug#begin('~/.vim/plugged')
 
@@ -31,9 +28,8 @@ Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'maximbaz/lightline-ale'
 
 " Snippet support
-if s:using_snippets
-  Plug 'sirver/ultisnips'
-endif
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 " }}}
@@ -59,9 +55,9 @@ set completepopup=highlight:Pmenu,border:off
 set backspace=indent,eol,start
 set expandtab
 set shiftround
-set shiftwidth=2
+set shiftwidth=4
 set softtabstop=-1
-set tabstop=2
+set tabstop=4
 set textwidth=80
 set title
 set number
@@ -225,9 +221,7 @@ let g:OmniSharp_popup_mappings = {
 \ 'pageUp': ['<C-b>', '<PageUp>']
 \}
 
-if s:using_snippets
-  let g:OmniSharp_want_snippet = 1
-endif
+let g:OmniSharp_want_snippet = 1
 
 let g:OmniSharp_highlight_groups = {
 \ 'ExcludedCode': 'NonText'
