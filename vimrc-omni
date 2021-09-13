@@ -130,7 +130,7 @@ augroup END
 " endif
 
 set background=dark
-colorscheme oceanicnext
+colorscheme gruvbox
 " }}}
 
 " ALE: {{{
