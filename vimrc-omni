@@ -141,6 +141,9 @@ let g:ale_sign_style_error = '·'
 let g:ale_sign_style_warning = '·'
 
 let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+nmap <silent> [g <Plug>(ale_previous_wrap)
+nmap <silent> ]g <Plug>(ale_next_wrap)
 " }}}
 
 " Asyncomplete: {{{
