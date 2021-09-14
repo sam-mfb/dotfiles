@@ -125,20 +125,21 @@ augroup ColorschemePreferences
 augroup END
 
 " Use truecolor in the terminal, when it is supported
+" This doesn't work on OSX
 " if has('termguicolors')
 "   set termguicolors
 " endif
 
 set background=dark
-colorscheme gruvbox
+colorscheme oceanicnext
 " }}}
 
 " ALE: {{{
-let g:ale_sign_error = '•'
-let g:ale_sign_warning = '•'
-let g:ale_sign_info = '·'
-let g:ale_sign_style_error = '·'
-let g:ale_sign_style_warning = '·'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '✘'
+let g:ale_sign_info = '•'
+let g:ale_sign_style_error = '•'
+let g:ale_sign_style_warning = '•'
 
 let g:ale_linters = { 'cs': ['OmniSharp'] }
 
@@ -227,7 +228,24 @@ let g:OmniSharp_popup_mappings = {
 let g:OmniSharp_want_snippet = 1
 
 let g:OmniSharp_highlight_groups = {
-\ 'ExcludedCode': 'NonText'
+\ 'NamespaceName': 'OcRed',
+\ 'FieldName': 'OcOrange',
+\ 'Keyword': 'OcLilac',
+\ 'ControlKeyword': 'OcOrange',
+\ 'ClassName': 'Todo',
+\ 'LocalName': 'Todo',
+\ 'ParameterName': 'OcAqua',
+\ 'PropertyName': 'OcAqua',
+\ 'ExcludedCode': 'NonText',
+\ 'XmlDocCommentName': 'NonText',
+\ 'XmlDocCommentText': 'NonText',
+\ 'XmlDocCommentDelimiter': 'NonText',
+\ 'XmlDocCommentAttributeName': 'NonText',
+\ 'XmlDocCommentAttributeValue': 'NonText',
+\ 'XmlDocCommentAttributeEntityReference': 'NonText',
+\ 'XmlDocCommentAttributeQuotes': 'NonText',
+\ 'PreprocessorKeyword': 'Comment',
+\ 'PreprocessorText': 'Comment'
 \}
 " }}}
 
