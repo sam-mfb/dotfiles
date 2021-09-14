@@ -203,6 +203,8 @@ let g:lightline#ale#indicator_ok = "\uf00c "
 " }}}
 
 " OmniSharp: {{{
+nmap <silent> gdv :OmniSharpGotoDefinition vsplit<CR>
+nmap <silent> gdt :OmniSharpGotoDefinition tabedit<CR>
 let g:OmniSharp_popup_position = 'peek'
 if has('nvim')
   let g:OmniSharp_popup_options = {
