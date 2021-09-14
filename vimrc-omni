@@ -74,6 +74,8 @@ set laststatus=2
 set noruler
 set noshowmode
 set signcolumn=yes
+" larger commandline since its used for lint messages
+set cmdheight=2
 
 set mouse=a
 set updatetime=1000
@@ -165,7 +167,7 @@ augroup END
 
 " Lightline: {{{
 let g:lightline = {
-\ 'colorscheme': 'gruvbox',
+\ 'colorscheme': 'one',
 \ 'active': {
 \   'right': [
 \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
