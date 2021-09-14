@@ -118,17 +118,7 @@ augroup ColorschemePreferences
   autocmd ColorScheme * highlight Normal     ctermbg=NONE guibg=NONE
   autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
   autocmd ColorScheme * highlight Todo       ctermbg=NONE guibg=NONE
-  " Link ALE sign highlights to similar equivalents without background colours
-  autocmd ColorScheme * highlight link ALEErrorSign   WarningMsg
-  autocmd ColorScheme * highlight link ALEWarningSign ModeMsg
-  autocmd ColorScheme * highlight link ALEInfoSign    Identifier
 augroup END
-
-" Use truecolor in the terminal, when it is supported
-" This doesn't work on OSX
-" if has('termguicolors')
-"   set termguicolors
-" endif
 
 set background=dark
 colorscheme oceanicnext
@@ -136,10 +126,17 @@ colorscheme oceanicnext
 
 " ALE: {{{
 let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '✘'
+let g:ale_sign_warning = '⚠'
 let g:ale_sign_info = '•'
 let g:ale_sign_style_error = '•'
 let g:ale_sign_style_warning = '•'
+
+highlight ALEError term=reverse cterm=undercurl ctermfg=167 gui=undercurl guisp=Red 
+highlight ALEErrorSign ctermfg=Red 
+highlight ALEWarning term=reverse cterm=undercurl ctermfg=221
+highlight ALEWarningSign ctermfg=Yellow 
+highlight ALEInfo term=reverse cterm=undercurl ctermfg=68
+highlight ALEInfoSign ctermfg=Blue 
 
 let g:ale_linters = { 'cs': ['OmniSharp'] }
 
