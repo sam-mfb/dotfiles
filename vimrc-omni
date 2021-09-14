@@ -228,7 +228,7 @@ let g:OmniSharp_popup_mappings = {
 let g:OmniSharp_want_snippet = 1
 
 let g:OmniSharp_highlight_groups = {
-\ 'NamespaceName': 'OcRed',
+\ 'NamespaceName': 'OcBlue',
 \ 'FieldName': 'OcOrange',
 \ 'StructName': 'OcOrange',
 \ 'Keyword': 'OcLilac',
