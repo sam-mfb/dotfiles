@@ -226,7 +226,7 @@ let g:OmniSharp_popup_mappings = {
 \ 'pageUp': ['<C-b>', '<PageUp>']
 \}
 
-let g:OmniSharp_want_snippet = 1
+let g:OmniSharp_want_snippet = 0
 
 let g:OmniSharp_highlight_groups = {
 \ 'NamespaceName': 'OcBlue',
@@ -251,4 +251,3 @@ let g:OmniSharp_highlight_groups = {
 \ 'PreprocessorText': 'Comment'
 \}
 " }}}
-
