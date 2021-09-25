@@ -1,3 +1,5 @@
+DOTFILES_DIR="~/.dotfiles"
+
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
@@ -6,6 +8,10 @@ autoload -Uz compinit && compinit
 # commands relative to root of current git repository
 alias cdg='cd "$(git rev-parse --show-cdup)"'
 alias lsg='ls "$(git rev-parse --show-cdup)"'
+
+# commands to load specific pre-configured versions of vim
+alias vimos='vim -u "$DOTFILES_DIR/vimrc-omni"'
+alias vimcoc='vim -u "$DOTFILES_DIR/vimrc-coc"'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
