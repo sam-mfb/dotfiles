@@ -19,3 +19,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # enable vi mode
 bindkey -v
+
+# show hostname cwd in shell on non-mac systems
+if [[ `uname` != "Darwin" ]]; then
+  export PS1="%m %d %% "
+fi
