@@ -22,5 +22,5 @@ bindkey -v
 
 # show hostname cwd in shell on non-mac systems
 if [[ `uname` != "Darwin" ]]; then
-  export PS1="%m %d %% "
+  export PS1="%B%F{240}%m %1~%f%b %# "
 fi
